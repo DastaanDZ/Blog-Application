@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      {% if user %}
+      <a class="navbar-brand welcome" href="/profile/{{user_id}}">{{user.username}}</a>
+      {% else %}
+      <a class="navbar-brand welcome" href="/">The Blog!</a>
+      {% endif %}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if create=='True' %}
+        <li class="nav-item mx-3">
+            <a class="nav-link active nav-text" aria-current="page" href="/new_post/{{user_id}}">Create Post</a>
+        </li>
+        {% endif %}
+        {% if profile=='True' %}
+        <li class="nav-item mx-3">
+            <a class="nav-link active nav-text" aria-current="page" href="/profile/{{user_id}}">Profile</a>
+            <!-- <a class="nav-link active welcome-caption" aria-current="page" href="/profile/{{user_id}}">My Profile</a> -->
+        </li>
+        {% endif %}
+        {% if login=='True' %}
+        <li class="nav-item mx-3">
+            <a class="nav-link nav-text" href="#">Login</a>
+        </li>
+        {% else %}
+        <li class="nav-item mx-3">
+            <a class="nav-link nav-text" href="/logout">Logout</a>
+        </li>
+        {% endif %}
+    </ul>
+    
+    {% if search=='True' %}
+    <form class="d-flex" role="search" method="post" action="{{ url_for('search') }}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-query" id="search-query">
+        <button class="btn btn-outline-success nav-text" type="submit" value="Search">Search</button>
+    <!-- <input type="submit" value="Search"> -->
+    </form>
+    {% endif %}
+      </div>
+    </div>
+  </nav>

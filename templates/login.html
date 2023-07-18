@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='False', profile='False', login='True'%}
+    {% include "navbar.html" %}
+{% endwith %}
+
+<div class="d-flex flex-column mb-3 vh-100 justify-content-center align-items-center">
+    <div class="p-2 welcome"><h1>Login</h1></div>
+    <br/>
+    <div class="p-2 welcome-caption"><p>Please fill the required details to Login.</p></div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="mb-1">
+          <label for="exampleInputEmail1" class="form-label welcome-caption" maxlength="10">Username&nbsp;&nbsp;</label>
+            {{ form.username }}
+        </div>
+        <div class="mb-1">
+          <label for="exampleInputPassword1" class="form-label welcome-caption">Password&nbsp;&nbsp;</label>
+            {{ form.password }}
+        </div>
+        <div class="mb-1"> 
+            {{ form.submit(class_="btn btn-primary cmn-btn") }}
+        </div>
+
+      </form>
+</div>
+<!-- <h1>Login</h1>
+
+<form >
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.password }}
+    {{ form.submit }}
+</form> -->
+{% endblock %}

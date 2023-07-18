@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False'%}
+    {% include "navbar.html" %}
+{% endwith %}
+
+<h4>Following</h4>
+<ul>
+    {% for follow in following %}
+        <li style="list-style: none;">{{ follow.followed.username }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

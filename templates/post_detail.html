@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False'%}
+    {% include "navbar.html" %}
+{% endwith %}
+
+<div class="mx-4 mt-3 post-detail d-flex justify-content-center align-items-center gap-5 align-items-stretch">
+    <img src="{{post.image_url}}" alt="{{post.title}}" style="width: 43rem;" >
+    <div class="detail"> 
+        <h4>{{post.title}}</h4>
+        <p>{{post.caption}}</p>
+    </div>
+</div>
+
+{% endblock %}

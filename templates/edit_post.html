@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False', create='True' %}
+    {% include "navbar.html" %}
+{% endwith %}
+<form action="{{ url_for('edit_post', post_id=post.id) }}" method="POST" class="d-flex flex-column justify-content-center vh-100 align-items-center">
+    <h1 class="p-2 welcome">Edit your post here!</h1>
+    <div class="mb-3 w-25">
+        <label for="title" class="form-label nav-text">Title</label>
+        <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
+    </div>
+    <div class="mb-3 w-25">
+        <label  for="caption" class="form-label nav-text">Caption</label>
+        <!-- <input type="text" id="caption" name="caption" class="form-control"> -->
+        <textarea class="form-control" id="caption" name="caption" required>{{ post.caption }}</textarea>
+    </div>
+    <div class="mb-3 w-25">
+        <label  for="image_url" class="form-label nav-text">Image URL</label>
+        <input type="text" id="image_url" name="image_url" class="form-control" value="{{ post.image_url }}" required>
+    </div>
+    <button type="submit" value="Submit" class="btn btn-primary w-25 nav-text">Submit</button>
+</form>
+
+{% endblock %}
+
+
+<!-- 
+# edit_post.html template
+<h1>Edit Post</h1>
+<form action="{{ url_for('edit_post', post_id=post.id) }}" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" name="title" value="{{ post.title }}" required><br>
+    <label for="caption">Caption:</label><br>
+    <textarea name="caption" required>{{ post.caption }}</textarea><br>
+    <label for="image_url">Image URL:</label><br>
+    <input type="text" name="image_url" value="{{ post.image_url }}" required><br><br>
+    <input type="submit" value="Submit">
+</form> -->
+

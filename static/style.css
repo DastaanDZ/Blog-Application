@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+.welcome{
+    font-family: 'Pacifico', cursive;
+}
+
+.welcome h1{
+    font-size: calc(4rem + 1.5vw);
+}
+
+.welcome-caption{
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+}
+.cmn-btn{
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+}
+.nav-text{
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+}

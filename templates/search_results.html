@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False'%}
+    {% include "navbar.html" %}
+{% endwith %}
+
+<h2 class="nav-text mx-4 mt-3">Search Results for "{{ query }}"</h2>
+
+{% for user in users %}
+    <div class="user mx-4 mt-3">
+        <a href="/view_profile/{{ user.id }}" style="list-style: none; text-decoration: none; color: inherit;" class="nav-text">{{ user.username }}</a>
+        <form action="/follow/{{ user.id }}" method="POST">
+            <div class="mb-1"> 
+                
+                <input type="submit" value="Follow" class="btn btn-primary cmn-btn">
+            </div>
+        </form>
+    </div>
+{% endfor %}
+
+
+{% endblock %}
+

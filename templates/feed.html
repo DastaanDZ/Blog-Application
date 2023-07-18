@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False', create='True' %}
+    {% include "navbar.html" %}
+{% endwith %}
+
+{% if posts %}
+<div class="d-flex mx-4 mt-3 align-items-stretch flex-wrap gap-3">
+    {% for post in posts %}
+    
+    <div class="card d-flex flex-column mb-3 justify-content-between" style="width: 17rem;">
+        <img src="{{ post.image_url }}" class="card-img-top" style="height: 180px;" alt="{{ post.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.caption }}</p>
+            <a href="/post_detail/{{post.id}}" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+{% else %} 
+<div class="d-flex flex-column mb-3 vh-100 justify-content-center align-items-center">
+    <h1 class="p-2 welcome mb-3" >No Post till Now!</h1>
+    <a href="/new_post/{{user_id}}" class="btn btn-primary cmn-btn" >Create New Post</a>
+</div>
+{% endif %}
+
+{% endblock %}

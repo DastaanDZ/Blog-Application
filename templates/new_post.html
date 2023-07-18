@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with search='True', profile='True', login='False', create='True' %}
+    {% include "navbar.html" %}
+{% endwith %}
+<form method="POST" action="/new_post/{{user_id}}" class="d-flex flex-column justify-content-center vh-100 align-items-center">
+    <h1 class="p-2 welcome">Create your new post here!</h1>
+    <div class="mb-3 w-25">
+        <label for="title" class="form-label nav-text">Title</label>
+        <input type="text" id="title" name="title" class="form-control">
+    </div>
+    <div class="mb-3 w-25">
+        <label  for="caption" class="form-label nav-text">Caption</label>
+        <input type="text" id="caption" name="caption" class="form-control">
+    </div>
+    <div class="mb-3 w-25">
+        <label  for="image_url" class="form-label nav-text">Image URL</label>
+        <input type="text" id="image_url" name="image_url" class="form-control">
+    </div>
+    <button type="submit" value="Create Post" class="btn btn-primary w-25 nav-text">Submit</button>
+</form>
+
+{% endblock %}
